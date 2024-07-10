@@ -7,9 +7,12 @@ pool:
 
 steps:
 - bash: |
-    echo "hyper123" | sudo -S yum update -y
-    echo "hyper123" | sudo -S yum install -y python3-pip
-    echo "hyper123" | sudo -S pip3 install --upgrade pip
+    # Update Homebrew and install Python3
+    brew update
+    brew install python3
+    
+    # Upgrade pip and install Ansible with Azure dependencies
+    pip3 install --upgrade pip
     pip3 install "ansible==2.9.17"
     pip3 install ansible[azure]
   displayName: 'Install Ansible and Azure dependencies'
