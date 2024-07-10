@@ -6,19 +6,19 @@ pool:
   name: Default  # This should point to your self-hosted agent pool
 
 steps:
-- script: |
-    # Update pip to the latest version
-    pip3 install --upgrade pip
+- bash: |
+    
+    sudo yum update -y
 
-    # Install Ansible core version 2.15.12
-    pip3 install ansible==2.15.12
+    sudo yum install -y python3-pip
 
-    # Install Ansible Azure collection
+    sudo pip3 install --upgrade pip
+
+    pip3 install "ansible==2.9.17"
+
+
     pip3 install ansible[azure]
-
-    # Install additional required Azure SDK dependencies
-    pip3 install msrest msrestazure azure-mgmt-resource
-  displayName: 'Install Ansible and Azure dependencies'
+    displayName:'Install Ansible and Azure dependencies'
 
 - script: |
     # Run Ansible playbook to create Azure App Service
