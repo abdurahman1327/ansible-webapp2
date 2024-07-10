@@ -18,7 +18,8 @@ steps:
 
 
     pip3 install ansible[azure]
-    displayName:'Install Ansible and Azure dependencies'
+
+  displayName: 'Install Ansible and Azure dependencies'
 
 - script: |
     # Run Ansible playbook to create Azure App Service
